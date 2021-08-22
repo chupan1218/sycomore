@@ -1,0 +1,40 @@
+---
+title: "sycomore-vignette"
+output: rmarkdown::html_vignette
+author: Chu PAN, College of Computer Science and Electronic Engineering, Hunan University
+date: '`r Sys.Date()`'
+vignette: >
+  %\VignetteIndexEntry{sycomore: quantify synergistic and competitive regulation mechanisms in the miRNA-mRNA regulatory network using multivariate information measures}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+### Overview
+This package provides R implement of `sycomore`. It allows the quantification of the synergistic and competitive relationship between two miRNAs when they target on the same mRNA, and allows large-scale and fast calculations. 
+
+`sycomore` computes three indicators to evaluate the synergy and competition between the miRNA pair: one is the physical overlap of binding sites; another is the co-expression correlation between the miRNA pair; the third is the function association of the miRNA-mRNA-miRNA triplet. Note that the first indicator is the consideration of the sequence data, and the latter two are the calculation of the expression profile data. As such, the inputs of main function include miRNA-mRNA binding site information and miRNA- mRNA- expression profile data. 
+
+### Example
+```{r}
+library(sycomore)
+
+# load sample dataset
+load(system.file("extdata/tcga.brca.testdata.Rdata", package = "sycomore"))
+
+# select the first five miRNA-mRNA pairs and log2 processing of expression profile data
+miRtarget <- miRtarget[c(1:5), ]
+miRNAexpression <- log2(miRNAexpression + 1)
+mRNAexpression <- log2(mRNAexpression + 1)
+
+# call main function
+results <- sycomore(miRtarget, miRNAexpression, mRNAexpression)
+
+results
+```
+
