@@ -7,4 +7,3 @@ then, install this package through:
 `install_github("chupan1218/sycomore"); library(sycomore);`
 
 The function based explanation documentation and application examples are available through the `help`. The other guide is the sycomore vignettes in which you also can get detailed information.
-"# sycomore" 
