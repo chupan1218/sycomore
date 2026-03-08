@@ -1,9 +1,6 @@
 rm(list = ls())
 
-library(dplyr)
-library(stringr)
-library(devtools)
-devtools::document()
+library(Informeasure)
 library(sycomore)
 
 load(system.file("extdata/tcga.brca.testdata.Rdata", package="sycomore"))
