@@ -4,7 +4,7 @@ Title: R implementation of sycomore
 Version: 0.1.0
 Author: Chu Pan
 Maintainer: Chu Pan <chu.pan@hnu.edu.cn>
-Description: An R package used to evaulate the synergistic and competitive relationship between miRNAs.
+Description: An R package used to evaluate the synergistic and competitive relationship between miRNA pairs.
 Depends: R (>= 4.0)
 License: GPL-3
 Encoding: UTF-8
@@ -17,4 +17,4 @@ Suggests:
     rmarkdown,
     testthat
 VignetteBuilder: knitr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.3

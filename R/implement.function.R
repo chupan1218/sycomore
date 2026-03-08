@@ -20,20 +20,22 @@ implement <- function(mRNA, miRNA.x, start.x, end.x, miRNA.y, start.y, end.y,
                       mRNAexpression, miRNAexpression){
 
   mRNA.index <- which(rownames(mRNAexpression) == mRNA, arr.ind = F)
-
+  
   miRNA.x.index <- which(rownames(miRNAexpression) == miRNA.x, arr.ind = F)
-
+  
   miRNA.y.index <- which(rownames(miRNAexpression) == miRNA.y, arr.ind = F)
 
   results.vector <- c()
 
   if(length(mRNA.index) & length(miRNA.x.index) & length(miRNA.y.index)){
 
-    if(as.numeric(end.x) < as.numeric(start.y) | as.numeric(end.y) < as.numeric(start.x))
+    if(as.numeric(end.x) < as.numeric(start.y) | as.numeric(end.y) < as.numeric(start.x)) {
       interaction <- "neighboring"
-    else
+    }
+    else{
       interaction <- "overlapping"
-
+    }
+      
     mRNAexpression <- mRNAexpression[mRNA.index, ]
     miRNAexpression <- miRNAexpression[c(miRNA.x.index, miRNA.y.index), ]
 
